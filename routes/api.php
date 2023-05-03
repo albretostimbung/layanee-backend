@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\Auth;
 use App\Http\Controllers\Api\V1\Merchant;
 use App\Http\Controllers\Api\V1\Indonesia;
+use App\Http\Controllers\Api\V1\User;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function () {
@@ -33,4 +34,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('cities', Indonesia\CityController::class);
     Route::apiResource('districts', Indonesia\DistrictController::class);
     Route::apiResource('villages', Indonesia\VillageController::class);
+
+    Route::get('users', User\UserController::class);
+    Route::get('merchants', User\MerchantController::class);
+    Route::get('freeze-users', User\FreezeUserController::class);
 });

@@ -11,6 +11,14 @@ class Village extends Model
 
     protected $guarded = [];
 
+    public function toArray()
+    {
+        return [
+            'code' => $this->code,
+            'name' => $this->name,
+        ];
+    }
+
     public function district()
     {
         return $this->belongsTo(District::class, 'district_code', 'code');

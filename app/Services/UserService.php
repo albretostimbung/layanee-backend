@@ -11,7 +11,7 @@ class UserService
     public function register($request)
     {
         $user = User::create($request->validated());
-        event(new Registered($user));
+        // event(new Registered($user));
         $token = $user->createToken(UserAgentHelper::substr($request->userAgent()))->plainTextToken;
 
         return $token;
